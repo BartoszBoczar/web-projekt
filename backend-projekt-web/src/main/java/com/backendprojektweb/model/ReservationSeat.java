@@ -1,4 +1,4 @@
-package com.web.backendprojektweb.model;
+package com.backendprojektweb.model;
 
 import javax.persistence.*;
 
