@@ -1,92 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>pom</packaging>
-	<modules>
-		<module>frontend-projekt-web</module>
-	</modules>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.web</groupId>
-	<artifactId>cinema-web-project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>cinema-web-project</name>
-	<description>Demo project for Spring Boot</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+    <groupId>org.example</groupId>
+    <artifactId>web-projekt</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>frontend-projekt-web</module>
+    </modules>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.4.15.Final</version>
-		</dependency>
-
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.diffplug.spotless</groupId>
-				<artifactId>spotless-maven-plugin</artifactId>
-				<version>1.31.0</version>
-				<configuration>
-					<java>
-						<licenseHeader>
-							<!-- Specify either content or file, but not both -->
-							<content>/* Licensed under Apache-2.0 */</content>
-							<file>${basedir}/license-header</file>
-						</licenseHeader>
-						<eclipse>
-							<!-- Optional, otherwise Eclipse defaults are used. Eclipse preference or property files are also supported. -->
-							<file>${basedir}/eclipse-format.xml</file>
-							<!-- Optional, available versions: https://github.com/diffplug/spotless/tree/master/lib-extra/src/main/resources/com/diffplug/spotless/extra/eclipse_jdt_formatter -->
-							<version>4.7.1</version>
-						</eclipse>
-						<googleJavaFormat>
-							<!-- Optional, available versions: https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.googlejavaformat%22%20AND%20a%3A%22google-java-format%22 -->
-							<version>1.5</version>
-							<!-- Optional, available versions: GOOGLE, AOSP  https://github.com/google/google-java-format/blob/master/core/src/main/java/com/google/googlejavaformat/java/JavaFormatterOptions.java -->
-							<style>GOOGLE</style>
-						</googleJavaFormat>
-						<removeUnusedImports/>
-						<importOrder>
-							<!-- Specify either order or file, but not both -->
-							<order>java,javax,org,com,com.diffplug,</order>
-							<file>${basedir}/eclipse.importorder</file>
-						</importOrder>
-					</java>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
