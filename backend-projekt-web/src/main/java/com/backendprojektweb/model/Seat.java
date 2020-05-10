@@ -10,6 +10,11 @@ public class Seat {
     @Column(name = "id")
     private int id;
 
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "hall_id")
+    private Hall hallId;
+
     @Column(name = "row")
     private int row;
 
@@ -19,8 +24,9 @@ public class Seat {
     public Seat() {
     }
 
-    public Seat(int id, int row, int column) {
+    public Seat(int id, Hall hallId, int row, int column) {
         this.id = id;
+        this.hallId = hallId;
         this.row = row;
         this.column = column;
     }
@@ -32,6 +38,10 @@ public class Seat {
     public void setId(int id) {
         this.id = id;
     }
+
+    public Hall getHallId() { return hallId; }
+
+    public void setHallId(Hall hallId) { this.hallId = hallId; }
 
     public int getRow() {
         return row;
