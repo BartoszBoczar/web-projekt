@@ -11,12 +11,10 @@ public class Screening {
     @Column(name = "id")
     private int id;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movieId;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hallId;

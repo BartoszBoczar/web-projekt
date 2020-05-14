@@ -10,15 +10,14 @@ public class Seat {
     @Column(name = "id")
     private int id;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hallId;
 
-    @Column(name = "row")
+    @Column(name = "seat_row")
     private int row;
 
-    @Column(name = "column")
+    @Column(name = "seat_column")
     private int column;
 
     public Seat() {

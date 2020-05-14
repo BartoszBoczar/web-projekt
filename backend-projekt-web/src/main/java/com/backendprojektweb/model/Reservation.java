@@ -3,14 +3,13 @@ package com.backendprojektweb.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "screening_id")
     private Screening screeningId;

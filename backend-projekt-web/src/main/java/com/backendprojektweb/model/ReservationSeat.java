@@ -10,12 +10,10 @@ public class ReservationSeat {
     @Column(name = "id")
     private int id;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "screening_id")
     private Screening screeningId;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "seat_id")
     private Seat seatId;
