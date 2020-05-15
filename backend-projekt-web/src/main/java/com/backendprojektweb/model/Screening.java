@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Table(name = "screenings")
 public class Screening {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -19,7 +19,7 @@ public class Screening {
     @JoinColumn(name = "hall_id")
     private Hall hallId;
 
-    @Column(name = "time")
+    @Column(name = "begin_time")
     private LocalDateTime time;
 
     //Duration in minutes
