@@ -1,5 +1,7 @@
 package com.backendprojektweb.model;
 
+import com.backendprojektweb.model.enumerations.Discount;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class ReservationSeat {
     private Seat seatId;
 
     @Column(name = "discount")
+    @Enumerated(EnumType.STRING)
     private Discount discount;
 
     public ReservationSeat() {
