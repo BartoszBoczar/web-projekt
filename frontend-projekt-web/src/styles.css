@@ -1,9 +1,0 @@
-/* You can add global styles to this file, and also import other style files */
-div.bs-data-panel {
-  border-radius: 0.7em;
-  padding: 0.5em;
-  background-color: $background-color-content-1;
-  box-shadow: $shadow-size $shadow-size $shadow-color;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}

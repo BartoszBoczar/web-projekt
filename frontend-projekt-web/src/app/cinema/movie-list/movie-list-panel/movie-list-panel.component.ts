@@ -4,7 +4,7 @@ import { Movie } from '../../model/movie';
 @Component({
   selector: 'app-movie-list-panel',
   templateUrl: './movie-list-panel.component.html',
-  styleUrls: ['./movie-list-panel.component.css']
+  styleUrls: ['./movie-list-panel.component.scss']
 })
 export class MovieListPanelComponent implements OnInit {
 
