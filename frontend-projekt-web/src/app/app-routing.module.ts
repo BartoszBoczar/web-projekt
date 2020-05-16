@@ -11,6 +11,11 @@ const routes: Routes = [
         resolve: {
           movies: MovieListResolver
         }
+    },
+    {
+        path: '',
+        redirectTo: '/movies',
+        pathMatch: 'full'
     }
 ];
 
