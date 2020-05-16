@@ -2,6 +2,7 @@ package com.backendprojektweb.model;
 
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Table(name = "movies")
@@ -21,14 +22,18 @@ public class Movie {
     @Column(name = "duration")
     private long duration;
 
+    @Column(name = "image_path", nullable = true)
+    private String image;
+
     public Movie() {
     }
 
-    public Movie(int id, String title, String description, long duration) {
+    public Movie(int id, String title, String description, long duration, String image) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.duration = duration;
+        this.image = image;
     }
 
     public int getId() {
@@ -61,5 +66,13 @@ public class Movie {
 
     public void setDuration(long duration) {
         this.duration = duration;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

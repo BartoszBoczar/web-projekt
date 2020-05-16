@@ -39,6 +39,7 @@ public class MovieService {
             result.setTitle(movie.getTitle());
             result.setDescription(movie.getDescription());
             result.setDuration(movie.getDuration());
+            result.setImage(movie.getImage());
         }
         result = repository.save(movie);
         return result;
