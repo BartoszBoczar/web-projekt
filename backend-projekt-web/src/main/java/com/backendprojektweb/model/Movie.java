@@ -14,7 +14,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description", length = 1000)
+    @Column(name = "description", length = 2500)
     private String description;
 
     //Duration in minutes
