@@ -22,22 +22,17 @@ public class Screening {
     @Column(name = "begin_time")
     private LocalDateTime time;
 
-    //Duration in minutes
-    @Column(name = "duration")
-    private long duration;
-
     @Column(name = "price")
     private float price;
 
     public Screening() {
     }
 
-    public Screening(int id, Movie movieId, Hall hallId, LocalDateTime time, long duration, float price) {
+    public Screening(int id, Movie movieId, Hall hallId, LocalDateTime time, float price) {
         this.id = id;
         this.movieId = movieId;
         this.hallId = hallId;
         this.time = time;
-        this.duration = duration;
         this.price = price;
     }
 
@@ -71,14 +66,6 @@ public class Screening {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(long duration) {
-        this.duration = duration;
     }
 
     public float getPrice() {

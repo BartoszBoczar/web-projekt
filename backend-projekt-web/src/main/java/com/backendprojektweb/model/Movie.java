@@ -14,16 +14,21 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 1000)
     private String description;
+
+    //Duration in minutes
+    @Column(name = "duration")
+    private long duration;
 
     public Movie() {
     }
 
-    public Movie(int id, String title, String description) {
+    public Movie(int id, String title, String description, long duration) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.duration = duration;
     }
 
     public int getId() {
@@ -48,5 +53,13 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 }

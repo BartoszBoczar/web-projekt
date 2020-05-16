@@ -36,7 +36,7 @@ public class ReservationSeatService {
         Optional<ReservationSeat> foundReservationSeat = repository.findById(reservationSeat.getId());
         if(foundReservationSeat.isPresent()) {
             result = foundReservationSeat.get();
-            result.setScreeningId(reservationSeat.getScreeningId());
+            result.setReservationId(reservationSeat.getReservationId());
             result.setSeatId(reservationSeat.getSeatId());
             result.setDiscount(reservationSeat.getDiscount());
         }

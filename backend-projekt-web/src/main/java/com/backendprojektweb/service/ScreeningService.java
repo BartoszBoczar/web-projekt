@@ -38,7 +38,6 @@ public class ScreeningService {
             result = foundScreening.get();
             result.setMovieId(screening.getMovieId());
             result.setHallId(screening.getHallId());
-            result.setDuration(screening.getDuration());
             result.setPrice(screening.getPrice());
             result.setTime(screening.getTime());
         }

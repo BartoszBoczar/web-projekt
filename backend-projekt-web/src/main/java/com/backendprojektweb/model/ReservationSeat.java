@@ -13,8 +13,8 @@ public class ReservationSeat {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "screening_id")
-    private Screening screeningId;
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservationId;
 
     @ManyToOne
     @JoinColumn(name = "seat_id")
@@ -27,9 +27,9 @@ public class ReservationSeat {
     public ReservationSeat() {
     }
 
-    public ReservationSeat(int id, Screening screeningId, Seat seatId, Discount discount) {
+    public ReservationSeat(int id, Reservation reservationId, Seat seatId, Discount discount) {
         this.id = id;
-        this.screeningId = screeningId;
+        this.reservationId = reservationId;
         this.seatId = seatId;
         this.discount = discount;
     }
@@ -42,12 +42,12 @@ public class ReservationSeat {
         this.id = id;
     }
 
-    public Screening getScreeningId() {
-        return screeningId;
+    public Reservation getReservationId() {
+        return reservationId;
     }
 
-    public void setScreeningId(Screening screeningId) {
-        this.screeningId = screeningId;
+    public void setReservationId(Reservation reservationId) {
+        this.reservationId = reservationId;
     }
 
     public Seat getSeatId() {

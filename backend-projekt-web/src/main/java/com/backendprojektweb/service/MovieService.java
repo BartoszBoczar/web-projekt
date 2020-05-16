@@ -38,6 +38,7 @@ public class MovieService {
             result = foundMovie.get();
             result.setTitle(movie.getTitle());
             result.setDescription(movie.getDescription());
+            result.setDuration(movie.getDuration());
         }
         result = repository.save(movie);
         return result;
