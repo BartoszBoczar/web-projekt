@@ -3,5 +3,5 @@ export interface Movie {
     title: string;
     description: string;
     duration: number;
-    imagePath: string
+    imagePath: string;
 }
