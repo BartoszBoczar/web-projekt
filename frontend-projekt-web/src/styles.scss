@@ -44,6 +44,7 @@ div.bs-darkgreen-panel {
 
 span.movieDetails {
   font-weight: bold;
+  font-size: 1.5em;
 }
 
 span.movieDescription {
@@ -51,4 +52,7 @@ span.movieDescription {
 }
 
 img.movieImage {
+  max-width: 20%;
+  max-height: 20%;
+  float: right;
 }

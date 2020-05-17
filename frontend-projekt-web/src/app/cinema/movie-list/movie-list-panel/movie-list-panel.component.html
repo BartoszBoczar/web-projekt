@@ -1,13 +1,20 @@
 <div class="bs-data-panel">
-    <div>
-        <span class="movieDetails">{{ movie.title }}</span>
+    <div class="movieDesc" style="display: flex;">
+        <div style="flex: 70%;">
+            <div>
+                <span class="movieDetails">{{ movie.title }}</span>
+            </div>
+            <div>
+                <span class="movieDescription">{{ movie.description }}</span>
+            </div>
+            <div>
+                <span class="movieDetails">Duration: {{ movie.duration }} minutes</span>
+            </div>
+            <button>See screening dates</button>
+        </div>
+        <img class="movieImage" src="{{ movie.image }}" style="flex:30%;">
     </div>
-    <img class="movieImage" src="{{ movie.image }}">
-    <div>
-        <span class="movieDescription">{{ movie.description }}</span>
-    </div>
-    <div>
-        <span class="movieDetails">Duration: {{ movie.duration }} minutes</span>
-    </div>
-    <button>See screening dates</button>
 </div>
+
+
+
