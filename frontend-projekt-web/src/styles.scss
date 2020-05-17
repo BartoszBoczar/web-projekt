@@ -10,6 +10,11 @@ header {
   padding: 1.0em;
 }
 
+body {
+  max-width: 70%;
+  margin:auto;
+}
+
 nav {
   background-color: $background-color-2;
   color: white;
@@ -42,10 +47,27 @@ div.bs-darkgreen-panel {
   margin-bottom: 0.5em;
 }
 
+div.movieDetails {
+  padding: 10px;
+}
+
+div.movieTitle {
+  font-weight: bold;
+  font-size: 2.5em;
+  align:centre;
+  padding: 15px;
+  text-align: center;
+}
+
+div.movieDescription {
+  padding: 10px;
+}
+
 span.movieDetails {
   font-weight: bold;
   font-size: 1.5em;
 }
+
 
 span.movieDescription {
   padding: 0.5em 0.5em 0.5em 0.5em;
@@ -56,3 +78,5 @@ img.movieImage {
   max-height: 20%;
   float: right;
 }
+
+
