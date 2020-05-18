@@ -18,9 +18,9 @@ class MovieControllerTests {
     private TestRestTemplate testRestTemplate;
 
     @LocalServerPort
-    int serverPort;
+    private int serverPort;
 
-    String body = "{\n" +
+    private String body = "{\n" +
             "\t\"title\": \"This_is_a_test\",\n" +
             "\t\"description\": \"test\",\n" +
             "\t\"duration\": 111,\n" +
