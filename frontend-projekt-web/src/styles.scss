@@ -11,7 +11,7 @@ header {
 }
 
 body {
-  max-width: 70%;
+  max-width: 85%;
   margin:auto;
 }
 
@@ -68,14 +68,25 @@ span.movieDetails {
   font-size: 1.5em;
 }
 
+div.movieDescription {
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+  width: 100%;
+}
 
 span.movieDescription {
-  padding: 0.5em 0.5em 0.5em 0.5em;
+  overflow: hidden;
+  display: -webkit-box;
+  width: 95%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  padding: 0.5em 0.5em 0em 0.5em;
 }
 
 img.movieImage {
-  max-width: 20%;
-  max-height: 20%;
+  max-width: 15%;
+  max-height: 15%;
   float: right;
 }
 
@@ -104,4 +115,3 @@ img.movieImage {
 	position:relative;
 	top:1px;
 }
-
