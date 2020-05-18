@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "81f2ce2b-e481-49bf-ad71-efdb699e6251",
+		"_postman_id": "2ba6fbe9-7526-4c8b-996d-337614e78e98",
 		"name": "cinema-web-postman-tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -50,7 +50,7 @@
 				{
 					"name": "Save ReservationSeat",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -78,7 +78,7 @@
 				{
 					"name": "Edit ReservationSeat",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -151,7 +151,7 @@
 				{
 					"name": "Save Reservation",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -179,7 +179,7 @@
 				{
 					"name": "Edit Reservation",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -252,7 +252,7 @@
 				{
 					"name": "Save Hall",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -280,7 +280,7 @@
 				{
 					"name": "Edit Hall",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -353,7 +353,7 @@
 				{
 					"name": "Save Seat",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -381,7 +381,7 @@
 				{
 					"name": "Edit Seat",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -454,7 +454,7 @@
 				{
 					"name": "Save Movie",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -482,7 +482,7 @@
 				{
 					"name": "Edit Movie",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -555,7 +555,7 @@
 				{
 					"name": "Save Screening",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -583,7 +583,7 @@
 				{
 					"name": "Edit Screening",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
