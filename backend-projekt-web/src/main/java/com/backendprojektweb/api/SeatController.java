@@ -2,7 +2,8 @@ package com.backendprojektweb.api;
 
 import com.backendprojektweb.model.Seat;
 import com.backendprojektweb.service.SeatService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,25 +14,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/seats")
+@AllArgsConstructor
 public class SeatController {
-    @Autowired
-    SeatService service;
+    private final SeatService service;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Seat> getSeat(@PathVariable("id") Long id) {
+        Seat seat = service.getSeat(id);
+        return new ResponseEntity<>(seat, new HttpHeaders(), HttpStatus.OK);
+    }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<Seat>> getSeats() {
         List<Seat> seats = service.getSeats();
-        return new ResponseEntity<List<Seat>>(seats, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(seats, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Seat> updateSeat(@RequestBody Seat seat) {
-        Seat newSeat = service.updateSeat(seat);
-        return new ResponseEntity<Seat>(newSeat, new HttpHeaders(), HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Seat> getSeat(@PathVariable("id") Integer id) {
-        Seat seat = service.getSeat(id);
-        return new ResponseEntity<Seat>(seat, new HttpHeaders(), HttpStatus.OK);
+    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<Seat> saveSeat(@RequestBody Seat seat) {
+        Seat newSeat = service.saveSeat(seat);
+        return new ResponseEntity<>(newSeat, new HttpHeaders(), HttpStatus.OK);
     }
 }

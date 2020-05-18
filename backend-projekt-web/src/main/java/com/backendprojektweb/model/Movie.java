@@ -1,17 +1,15 @@
 package com.backendprojektweb.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Blob;
 
+@Getter @Setter @NoArgsConstructor
 @Entity
 @Table(name = "movies")
-public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class Movie extends AbstractEntity{
     @Column(name = "title")
     private String title;
 
@@ -22,57 +20,6 @@ public class Movie {
     @Column(name = "duration")
     private long duration;
 
-    @Column(name = "image_path", nullable = true)
+    @Column(name = "image_path")
     private String image;
-
-    public Movie() {
-    }
-
-    public Movie(int id, String title, String description, long duration, String image) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.duration = duration;
-        this.image = image;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(long duration) {
-        this.duration = duration;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

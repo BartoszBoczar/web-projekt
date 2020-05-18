@@ -12,16 +12,16 @@ INSERT INTO movies (title, description, duration, image_path) VALUES('Thriller N
 INSERT INTO movies (title, description, duration, image_path) VALUES('The Pig Who Cried Werewolf', 'The Three Little Pigs are named Heimlich (Sean Bishop), Dieter (Sean Bishop), and Horst (Cody Cameron) are heading home from the hospital where Heimlich got his leg hurt from spying on neighbors, like the Poor Lady and the Shoe and Jack and Jill (not to be confused with the outlaws Jack and Jill). When they arrived at home, Heimlich saw that there''s a new neighbor: The Big Bad Wolf (Aron Warner). When the bag falls down, Heimlich, spying on Big Bad Wolf, saw that Big Bad Wolf has a box of knives, but Dieter and Horst didn''t see it. Big Bad Wolf then buries the knives in the ground and goes into his house.', 6, 'https://m.media-amazon.com/images/M/MV5BMDc5NDAwNzctYzQ2Zi00MDRmLTkxYjYtNzIwMzcwNDc4NWUzXkEyXkFqcGdeQXVyMzY3MDEzMTA@._V1_.jpg');
 INSERT INTO movies (title, description, duration, image_path) VALUES('Puss in Boots: The Three Diablos', 'After the events of Puss In Boots, Puss is riding his horse through the desert when he is captured by Spanish knights. He is then taken to Princess Alexandra Belagomba, whose "Heart of Fire" Ruby, the crown jewel of her kingdom, is missing. At first, Puss believes he is being wrongfully charged for the theft, but it later turns out that the Princess only wants to hire him based on his reputation. She reveals that a thief called "The Whisperer" stole the heart and that they captured three of his henchmen. The henchmen turn out to be three kittens called the Three Diablos. Though Puss cannot believe that such innocent creatures could be thieves, the princess and her guards are terrified of them. The kittens kindly agree to help Puss on the promise that they will be free if they return the ruby.', 13, 'https://m.media-amazon.com/images/M/MV5BMDM2ZDg1ZmQtYjM0ZC00Yzg3LWE2NmMtNGQwMzUxNTUwMjZmXkEyXkFqcGdeQXVyNjIzODI5OTQ@._V1_.jpg');
 
-INSERT INTO halls VALUES(1);
-INSERT INTO halls VALUES(2);
-INSERT INTO halls VALUES(3);
-INSERT INTO halls VALUES(4);
-INSERT INTO halls VALUES(5);
-INSERT INTO halls VALUES(6);
-INSERT INTO halls VALUES(7);
-INSERT INTO halls VALUES(8);
-INSERT INTO halls VALUES(9);
-INSERT INTO halls VALUES(10);
+INSERT INTO halls (id) VALUES(1);
+INSERT INTO halls (id) VALUES(2);
+INSERT INTO halls (id) VALUES(3);
+INSERT INTO halls (id) VALUES(4);
+INSERT INTO halls (id) VALUES(5);
+INSERT INTO halls (id) VALUES(6);
+INSERT INTO halls (id) VALUES(7);
+INSERT INTO halls (id) VALUES(8);
+INSERT INTO halls (id) VALUES(9);
+INSERT INTO halls (id) VALUES(10);
 
 INSERT INTO `seats` (`hall_id`,`seat_row`,`seat_column`) VALUES ('1','1','1'),('1','2','1'),('1','3','1'),('1','4','1'),('1','5','1'),('1','6','1'),('1','7','1'),('1','8','1'),('1','9','1'),('1','10','1');
 INSERT INTO `seats` (`hall_id`,`seat_row`,`seat_column`) VALUES ('1','1','2'),('1','2','2'),('1','3','2'),('1','4','2'),('1','5','2'),('1','6','2'),('1','7','2'),('1','8','2'),('1','9','2'),('1','10','2');

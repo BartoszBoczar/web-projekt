@@ -50,14 +50,14 @@ class MovieControllerTests {
     }
 
     @Test
-    void testPostRequest() {
+    void testPutRequest() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String>entity = new HttpEntity<>(body, headers);
         ResponseEntity<Movie> responseEntity = testRestTemplate.exchange("http://localhost:" + serverPort + "/movies",
-                HttpMethod.POST, entity, Movie.class);
+                HttpMethod.PUT, entity, Movie.class);
         Movie movie = (Movie) responseEntity.getBody();
         assert movie != null;
-        assertEquals("This_is_a_test", movie.getTitle());
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 }

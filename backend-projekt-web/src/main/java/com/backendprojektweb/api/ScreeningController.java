@@ -2,7 +2,7 @@ package com.backendprojektweb.api;
 
 import com.backendprojektweb.model.Screening;
 import com.backendprojektweb.service.ScreeningService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,25 +13,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/screenings")
+@AllArgsConstructor
 public class ScreeningController {
-    @Autowired
-    ScreeningService service;
+    private final ScreeningService service;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Screening> getScreening(@PathVariable("id") Long id) {
+        Screening screening = service.getScreening(id);
+        return new ResponseEntity<>(screening, new HttpHeaders(), HttpStatus.OK);
+    }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<Screening>> getScreenings() {
         List<Screening> screenings = service.getScreenings();
-        return new ResponseEntity<List<Screening>>(screenings, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(screenings, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Screening> updateScreening(@RequestBody Screening screening) {
-        Screening newScreening = service.updateScreening(screening);
-        return new ResponseEntity<Screening>(newScreening, new HttpHeaders(), HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Screening> getScreening(@PathVariable("id") Integer id) {
-        Screening screening = service.getScreening(id);
-        return new ResponseEntity<Screening>(screening, new HttpHeaders(), HttpStatus.OK);
+    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<Screening> saveScreening(@RequestBody Screening screening) {
+        Screening newScreening = service.saveScreening(screening);
+        return new ResponseEntity<>(newScreening, new HttpHeaders(), HttpStatus.OK);
     }
 }
