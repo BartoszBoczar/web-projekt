@@ -10,11 +10,10 @@
             <div class="movieDetails">
                 <span class="movieDetails">Duration: {{ movie.duration }} minutes</span>
             </div>
-            <button class ="screeningDatesButton">See screening dates</button>
+            <button class ="screeningDatesButton" [routerLink]="movie.id">See screening dates</button>
         </div>
         <img class="movieImage" src="{{ movie.image }}" onerror="this.src='../../assets/placeholderPoster.jpg';" style="flex:30%;">
     </div>
 </div>
-
-
+<router-outlet></router-outlet>
 
