@@ -2,7 +2,6 @@ package com.backendprojektweb.api;
 
 import com.backendprojektweb.model.Seat;
 import com.backendprojektweb.service.SeatService;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

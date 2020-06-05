@@ -1,10 +1,12 @@
 package com.backendprojektweb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
@@ -22,4 +24,8 @@ public class Reservation extends AbstractEntity {
 
     @Column(name = "email")
     private String email;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "reservationId")
+    private List<ReservationSeat> reservationSeatList;
 }

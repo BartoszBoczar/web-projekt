@@ -1,6 +1,7 @@
 package com.backendprojektweb.api;
 
 import com.backendprojektweb.model.Reservation;
+import com.backendprojektweb.model.ReservationWithReservationSeatList;
 import com.backendprojektweb.service.ReservationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -30,8 +31,8 @@ public class ReservationController {
     }
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Reservation> saveReservation(@RequestBody Reservation reservation) {
-        Reservation newReservation = service.saveReservation(reservation);
+    public ResponseEntity<Reservation> saveReservation(@RequestBody ReservationWithReservationSeatList reservationWithReservationSeatList) {
+        Reservation newReservation = service.saveReservation(reservationWithReservationSeatList);
         return new ResponseEntity<>(newReservation, new HttpHeaders(), HttpStatus.OK);
     }
 }
