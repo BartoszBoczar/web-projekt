@@ -23,6 +23,12 @@ public class ScreeningController {
         return new ResponseEntity<>(screening, new HttpHeaders(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/movie/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<List<Screening>> getScreeningOfMovie(@PathVariable("id") Long id) {
+        List<Screening> screening = service.getScreeningsOfMovie(id);
+        return new ResponseEntity<>(screening, new HttpHeaders(), HttpStatus.OK);
+    }
+
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<Screening>> getScreenings() {
         List<Screening> screenings = service.getScreenings();
