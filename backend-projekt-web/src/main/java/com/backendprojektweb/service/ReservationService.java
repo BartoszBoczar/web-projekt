@@ -31,9 +31,9 @@ public class ReservationService {
         List<ReservationSeat> unavailableReservationSeats = reservationSeatRepository.unavailableSeatsDuringScreening(reservationDTO.getReservation().getScreening().getId());
         for(ReservationSeat unavailableReservationSeat : unavailableReservationSeats) {
             for(ReservationSeatDTO reservationSeatDTO : reservationDTO.getReservationSeatDTOList()) {
-                ReservationSeat toBeReserverSeat = reservationSeatDTO.getReservationSeat();
+                ReservationSeat toBeReservedSeat = reservationSeatDTO.getReservationSeat();
                 // Return if any of the seats meant to be reserved are already reserved
-                if(toBeReserverSeat.getSeat().getId() == unavailableReservationSeat.getSeat().getId()) {
+                if(toBeReservedSeat.getSeat().getId() == unavailableReservationSeat.getSeat().getId()) {
                     return null;
                 }
             }
