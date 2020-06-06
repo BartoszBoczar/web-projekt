@@ -6,6 +6,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieListPanelComponent } from './movie-list/movie-list-panel/movie-list-panel.component';
 import { MovieScreeningListComponent } from './movie-screening-list/movie-screening-list.component';
 import { MovieScreeningReservationModalComponent } from './movie-screening-list/movie-screening-reservation-modal/movie-screening-reservation-modal.component';
+import { SeatRepresentationComponent } from './movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MovieScreeningReservationModalComponent } from './movie-screening-list/
     MovieListComponent,
     MovieListPanelComponent,
     MovieScreeningListComponent,
-    MovieScreeningReservationModalComponent
+    MovieScreeningReservationModalComponent,
+    SeatRepresentationComponent
   ],
   imports: [
     CommonModule,

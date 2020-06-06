@@ -6,7 +6,10 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="grid"></div>
+        <div style="height: 30px; width: 100%; background-color: green"><h4 style="color: white; text-align: center;">Screen</h4></div>
+        <div *ngFor = "let seatModel of seatModels" style="display: flex; justify-content: space-between;">
+            <app-seat-representation *ngFor = "let model of seatModel" [available] = "model"></app-seat-representation>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-success">Make a Reservation</button>
