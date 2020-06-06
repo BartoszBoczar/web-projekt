@@ -31,7 +31,17 @@ public class SeatService {
         if(!foundHall.isPresent()) {
             throw new ReferenceNotPresentException();
         }
-        seatDTO.getSeat().setHall(foundHall.get());
-        return repository.save(seatDTO.getSeat());
+        // Check if seat is present
+        Seat seat;
+        Optional<Seat> foundSeat = repository.findById(seatDTO.getSeat().getId());
+        if(foundSeat.isPresent()) {
+            seat = foundSeat.get();
+            seat.setRow(seatDTO.getSeat().getRow());
+            seat.setColumn(seatDTO.getSeat().getColumn());
+        } else {
+            seat = seatDTO.getSeat();
+        }
+        seat.setHall(foundHall.get());
+        return repository.save(seat);
     }
 }

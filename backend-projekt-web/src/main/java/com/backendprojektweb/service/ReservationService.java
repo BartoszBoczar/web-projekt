@@ -30,25 +30,37 @@ public class ReservationService {
     @Transactional(rollbackOn = ReferenceNotPresentException.class)
     public Reservation saveReservation(ReservationDTO reservationDTO) throws ReferenceNotPresentException {
         // Check which seats are not available
-        List<ReservationSeat> unavailableReservationSeats = reservationSeatRepository.unavailableSeatsDuringScreening(reservationDTO.getReservation().getScreening().getId());
+        List<ReservationSeat> unavailableReservationSeats = reservationSeatRepository.unavailableSeatsDuringScreening(reservationDTO.getScreeningId());
         for(ReservationSeat unavailableReservationSeat : unavailableReservationSeats) {
             for(ReservationSeatDTO reservationSeatDTO : reservationDTO.getReservationSeatDTOList()) {
-                ReservationSeat toBeReservedSeat = reservationSeatDTO.getReservationSeat();
+                Long seatId = reservationSeatDTO.getSeatId();
                 // Return if any of the seats meant to be reserved are already reserved
-                if(toBeReservedSeat.getSeat().getId() == unavailableReservationSeat.getSeat().getId()) {
+                if(seatId == unavailableReservationSeat.getSeat().getId()) {
                     throw new ReferenceNotPresentException();
                 }
             }
         }
-        // Save the whole reservation
+        // Check if screening is present
         Optional<Screening> screeningOptional = screeningRepository.findById(reservationDTO.getScreeningId());
         if(!screeningOptional.isPresent()) {
             throw new ReferenceNotPresentException();
         }
         reservationDTO.getReservation().setScreening(screeningOptional.get());
-        Reservation savedReservation = repository.save(reservationDTO.getReservation());
+        // Check if reservation is present
+        Optional<Reservation> foundReservation = repository.findById(reservationDTO.getReservation().getId());
+        Reservation savedReservation;
+        if(foundReservation.isPresent()) {
+            savedReservation = foundReservation.get();
+            savedReservation.setSurname(reservationDTO.getReservation().getSurname());
+            savedReservation.setName(reservationDTO.getReservation().getName());
+            savedReservation.setEmail(reservationDTO.getReservation().getEmail());
+            savedReservation = repository.save(savedReservation);
+        } else {
+            savedReservation = repository.save(reservationDTO.getReservation());
+        }
         // Save all reservation seats
         for(ReservationSeatDTO reservationSeatDTO : reservationDTO.getReservationSeatDTOList()) {
+            reservationSeatDTO.setReservationId(savedReservation.getId());
             reservationSeatService.saveReservationSeat(reservationSeatDTO);
         }
         return savedReservation;

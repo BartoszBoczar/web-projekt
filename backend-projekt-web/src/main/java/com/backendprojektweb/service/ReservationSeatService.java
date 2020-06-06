@@ -33,11 +33,19 @@ public class ReservationSeatService {
 
     @Transactional(rollbackOn = ReferenceNotPresentException.class)
     public ReservationSeat saveReservationSeat(ReservationSeatDTO reservationSeatDTO) throws ReferenceNotPresentException{
-        ReservationSeat reservationSeat = reservationSeatDTO.getReservationSeat();
         Optional<Seat> seatOptional = seatRepository.findById(reservationSeatDTO.getSeatId());
         Optional<Reservation> reservationOptional = reservationRepository.findById(reservationSeatDTO.getReservationId());
         if(!reservationOptional.isPresent() || !seatOptional.isPresent()) {
             throw new ReferenceNotPresentException();
+        }
+        // Check if reservationSeat is present
+        ReservationSeat reservationSeat;
+        Optional<ReservationSeat> foundReservationSeat = repository.findById(reservationSeatDTO.getReservationSeat().getId());
+        if(foundReservationSeat.isPresent()) {
+            reservationSeat = foundReservationSeat.get();
+            reservationSeat.setDiscount(reservationSeatDTO.getReservationSeat().getDiscount());
+        } else {
+            reservationSeat = reservationSeatDTO.getReservationSeat();
         }
         reservationSeat.setSeat(seatOptional.get());
         reservationSeat.setReservation(reservationOptional.get());
