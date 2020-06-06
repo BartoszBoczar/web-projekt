@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,8 +19,12 @@ public class ScreeningService {
 
     @Transactional
     public List<Screening> getScreeningsOfMovie(Long id) {
-        List<Screening> a = repository.allScreeningsOfMovie(id);
-        return a;
+        return repository.allScreeningsOfMovie(id);
+    }
+
+    @Transactional
+    public List<Screening> getScreeningsOfMovieFromNow(Long id) {
+        return repository.allScreeningsOfMovieFromDate(id, LocalDateTime.now());
     }
 
     @Transactional
