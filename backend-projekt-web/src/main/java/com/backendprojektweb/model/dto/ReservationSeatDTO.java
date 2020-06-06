@@ -10,5 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ReservationSeatDTO {
     private ReservationSeat reservationSeat;
+    private Long reservationId;
     private Long seatId;
 }

@@ -1,18 +1,26 @@
 package com.backendprojektweb.service;
 
+import com.backendprojektweb.exceptions.ReferenceNotPresentException;
+import com.backendprojektweb.model.Reservation;
 import com.backendprojektweb.model.ReservationSeat;
+import com.backendprojektweb.model.Seat;
+import com.backendprojektweb.model.dto.ReservationSeatDTO;
+import com.backendprojektweb.repository.ReservationRepository;
 import com.backendprojektweb.repository.ReservationSeatRepository;
+import com.backendprojektweb.repository.SeatRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class ReservationSeatService {
     private final ReservationSeatRepository repository;
+    private final SeatRepository seatRepository;
+    private final ReservationRepository reservationRepository;
 
     @Transactional
     public List<ReservationSeat> getReservationSeats() { return repository.findAll(); }
@@ -21,5 +29,18 @@ public class ReservationSeatService {
     public ReservationSeat getReservationSeat(Long id) { return repository.findById(id).orElse(null); }
 
     @Transactional
-    public ReservationSeat saveReservationSeat(ReservationSeat reservationSeat) { return repository.save(reservationSeat); }
+    public List<ReservationSeat> getUnavailableReservationSeats(Long screeningId) { return repository.unavailableSeatsDuringScreening(screeningId); }
+
+    @Transactional(rollbackOn = ReferenceNotPresentException.class)
+    public ReservationSeat saveReservationSeat(ReservationSeatDTO reservationSeatDTO) throws ReferenceNotPresentException{
+        ReservationSeat reservationSeat = reservationSeatDTO.getReservationSeat();
+        Optional<Seat> seatOptional = seatRepository.findById(reservationSeatDTO.getSeatId());
+        Optional<Reservation> reservationOptional = reservationRepository.findById(reservationSeatDTO.getReservationId());
+        if(!reservationOptional.isPresent() || !seatOptional.isPresent()) {
+            throw new ReferenceNotPresentException();
+        }
+        reservationSeat.setSeat(seatOptional.get());
+        reservationSeat.setReservation(reservationOptional.get());
+        return repository.save(reservationSeat);
+    }
 }

@@ -1,5 +1,6 @@
 package com.backendprojektweb.api;
 
+import com.backendprojektweb.exceptions.ReferenceNotPresentException;
 import com.backendprojektweb.model.Seat;
 import com.backendprojektweb.model.dto.SeatDTO;
 import com.backendprojektweb.service.SeatService;
@@ -32,7 +33,12 @@ public class SeatController {
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Seat> saveSeat(@RequestBody SeatDTO seatDTO) {
-        Seat newSeat = service.saveSeat(seatDTO);
+        Seat newSeat;
+        try {
+            newSeat = service.saveSeat(seatDTO);
+        } catch (ReferenceNotPresentException e) {
+            newSeat = null;
+        }
         return new ResponseEntity<>(newSeat, new HttpHeaders(), HttpStatus.OK);
     }
 }

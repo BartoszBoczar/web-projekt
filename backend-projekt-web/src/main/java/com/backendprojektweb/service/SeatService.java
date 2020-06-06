@@ -1,5 +1,6 @@
 package com.backendprojektweb.service;
 
+import com.backendprojektweb.exceptions.ReferenceNotPresentException;
 import com.backendprojektweb.model.Hall;
 import com.backendprojektweb.model.Seat;
 import com.backendprojektweb.model.dto.SeatDTO;
@@ -24,11 +25,11 @@ public class SeatService {
     @Transactional
     public Seat getSeat(Long id) { return repository.findById(id).orElse(null); }
 
-    @Transactional
-    public Seat saveSeat(SeatDTO seatDTO) {
+    @Transactional(rollbackOn = ReferenceNotPresentException.class)
+    public Seat saveSeat(SeatDTO seatDTO) throws ReferenceNotPresentException {
         Optional<Hall> foundHall = hallRepository.findById(seatDTO.getHallId());
         if(!foundHall.isPresent()) {
-            return null;
+            throw new ReferenceNotPresentException();
         }
         seatDTO.getSeat().setHall(foundHall.get());
         return repository.save(seatDTO.getSeat());

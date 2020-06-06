@@ -1,5 +1,6 @@
 package com.backendprojektweb.api;
 
+import com.backendprojektweb.exceptions.ReferenceNotPresentException;
 import com.backendprojektweb.model.Reservation;
 import com.backendprojektweb.model.dto.ReservationDTO;
 import com.backendprojektweb.service.ReservationService;
@@ -32,7 +33,12 @@ public class ReservationController {
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Reservation> saveReservation(@RequestBody ReservationDTO reservationDTO) {
-        Reservation newReservation = service.saveReservation(reservationDTO);
+        Reservation newReservation;
+        try {
+            newReservation = service.saveReservation(reservationDTO);
+        } catch (ReferenceNotPresentException e) {
+            newReservation = null;
+        }
         return new ResponseEntity<>(newReservation, new HttpHeaders(), HttpStatus.OK);
     }
 }
