@@ -13,8 +13,8 @@ import java.util.List;
 @Table(name = "reservations")
 public class Reservation extends AbstractEntity {
     @ManyToOne
-    @JoinColumn(name = "screening_id")
-    private Screening screeningId;
+    @JoinColumn(name = "screening")
+    private Screening screening;
 
     @Column(name = "name")
     private String name;
@@ -24,8 +24,4 @@ public class Reservation extends AbstractEntity {
 
     @Column(name = "email")
     private String email;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "reservationId")
-    private List<ReservationSeat> reservationSeatList;
 }

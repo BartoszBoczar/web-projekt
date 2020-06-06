@@ -12,12 +12,12 @@ import javax.persistence.*;
 @Table(name = "reservations_seats")
 public class ReservationSeat extends AbstractEntity {
     @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservationId;
+    @JoinColumn(name = "reservation")
+    private Reservation reservation;
 
     @ManyToOne
-    @JoinColumn(name = "seat_id")
-    private Seat seatId;
+    @JoinColumn(name = "seat")
+    private Seat seat;
 
     @Column(name = "discount")
     @Enumerated(EnumType.STRING)

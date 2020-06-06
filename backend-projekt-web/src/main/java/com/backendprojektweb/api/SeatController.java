@@ -1,6 +1,7 @@
 package com.backendprojektweb.api;
 
 import com.backendprojektweb.model.Seat;
+import com.backendprojektweb.model.dto.SeatDTO;
 import com.backendprojektweb.service.SeatService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -30,8 +31,8 @@ public class SeatController {
     }
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Seat> saveSeat(@RequestBody Seat seat) {
-        Seat newSeat = service.saveSeat(seat);
+    public ResponseEntity<Seat> saveSeat(@RequestBody SeatDTO seatDTO) {
+        Seat newSeat = service.saveSeat(seatDTO);
         return new ResponseEntity<>(newSeat, new HttpHeaders(), HttpStatus.OK);
     }
 }

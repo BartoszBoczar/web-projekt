@@ -13,12 +13,12 @@ import java.util.List;
 public interface ScreeningRepository extends JpaRepository<Screening, Long> {
     @Query(value = "SELECT sc " +
             "FROM #{#entityName} sc " +
-            "JOIN sc.movieId m " +
+            "JOIN sc.movie m " +
             "WHERE m.id = :movieId")
     public List<Screening> allScreeningsOfMovie(@Param("movieId") Long movieId);
     @Query(value = "SELECT sc " +
             "FROM #{#entityName} sc " +
-            "JOIN sc.movieId m " +
+            "JOIN sc.movie m " +
             "WHERE m.id = :movieId " +
             "AND sc.time >= :dateFrom " +
             "ORDER BY sc.time ASC")

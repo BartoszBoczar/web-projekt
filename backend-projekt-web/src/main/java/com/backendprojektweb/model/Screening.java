@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @Table(name = "screenings")
 public class Screening extends AbstractEntity {
     @ManyToOne
-    @JoinColumn(name = "movie_id")
-    private Movie movieId;
+    @JoinColumn(name = "movie")
+    private Movie movie;
 
     @ManyToOne
-    @JoinColumn(name = "hall_id")
-    private Hall hallId;
+    @JoinColumn(name = "hall")
+    private Hall hall;
 
     @Column(name = "begin_time")
     private LocalDateTime time;

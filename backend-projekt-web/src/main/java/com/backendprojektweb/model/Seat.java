@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Table(name = "seats")
 public class Seat extends AbstractEntity{
     @ManyToOne
-    @JoinColumn(name = "hall_id")
-    private Hall hallId;
+    @JoinColumn(name = "hall")
+    private Hall hall;
 
     @Column(name = "seat_row")
     private int row;

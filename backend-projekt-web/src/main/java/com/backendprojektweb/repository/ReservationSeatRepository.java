@@ -12,16 +12,22 @@ import java.util.List;
 @Repository
 public interface ReservationSeatRepository extends JpaRepository<ReservationSeat, Long> {
 //    @Query(value = "SELECT rs " +
+//            "FROM reservations_seats rs " +
+//            "JOIN seats st ON rs.reservation = st.id " +
+//            "JOIN halls h ON st.hall = h.id " +
+//            "JOIN screenings sc ON sc.hall = h.id " +
+//            "WHERE sc.id = :screeningId")
+
+//    @Query(value = "SELECT rs " +
 //            "FROM #{#entityName} rs " +
-//            "JOIN seats st ON rs.reservation_id = st.id " +
-//            "JOIN halls h ON st.hall_id = h.id " +
-//            "JOIN screenings sc ON sc.hallId = h.id " +
+//            "JOIN rs.seat st " +
+//            "JOIN st.hall h " +
+//            "JOIN h.screeningList sc " +
 //            "WHERE sc.id = :screeningId")
     @Query(value = "SELECT rs " +
             "FROM #{#entityName} rs " +
-            "JOIN rs.seatId st " +
-            "JOIN st.hallId h " +
-            "JOIN h.screeningList sc " +
+            "JOIN rs.reservation r " +
+            "JOIN r.screening sc " +
             "WHERE sc.id = :screeningId")
     public List<ReservationSeat> unavailableSeatsDuringScreening(@Param("screeningId") Long screeningId);
 }
