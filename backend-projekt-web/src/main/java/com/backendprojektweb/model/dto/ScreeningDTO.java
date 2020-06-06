@@ -1,6 +1,6 @@
 package com.backendprojektweb.model.dto;
 
-import com.backendprojektweb.model.Seat;
+import com.backendprojektweb.model.Screening;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SeatDTO {
-    private Seat seat;
+public class ScreeningDTO {
+    private Screening screening;
+    private Long movieId;
     private Long hallId;
 }

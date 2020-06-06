@@ -1,6 +1,8 @@
 package com.backendprojektweb.api;
 
+import com.backendprojektweb.exceptions.ReferenceNotPresentException;
 import com.backendprojektweb.model.Screening;
+import com.backendprojektweb.model.dto.ScreeningDTO;
 import com.backendprojektweb.service.ScreeningService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -42,8 +44,13 @@ public class ScreeningController {
     }
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Screening> saveScreening(@RequestBody Screening screening) {
-        Screening newScreening = service.saveScreening(screening);
+    public ResponseEntity<Screening> saveScreening(@RequestBody ScreeningDTO screeningDTO) {
+        Screening newScreening;
+        try {
+            newScreening = service.saveScreening(screeningDTO);
+        } catch (ReferenceNotPresentException e) {
+            newScreening = null;
+        }
         return new ResponseEntity<>(newScreening, new HttpHeaders(), HttpStatus.OK);
     }
 }
