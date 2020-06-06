@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "_variables.scss";
+@import '~bootstrap/scss/bootstrap';
 
 header {
   background-color: $background-color-1;
@@ -114,4 +115,16 @@ img.movieImage {
 .screeningDatesButton:active {
 	position:relative;
 	top:1px;
+}
+
+table.greenTable {
+  border: 6px solid #24943A;
+  background-color: #D4EED1;
+  text-align: center;
+}
+
+table.greenTable td {
+  border: 1px solid #24943A;
+  padding: 3px 2px;
+  font-size: 13px;
 }

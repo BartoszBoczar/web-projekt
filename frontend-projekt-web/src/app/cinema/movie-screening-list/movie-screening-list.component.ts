@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieScreening } from '../model/movieScreening';
 import { ActivatedRoute } from '@angular/router';
+import { Movie } from '../model/movie';
 
 @Component({
   selector: 'app-movie-screening-list',
@@ -9,14 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieScreeningListComponent implements OnInit {
 
+  movie: Movie;
+
   screenings: MovieScreening[];
 
   constructor(private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.screenings = this.route.snapshot.data.screenings.sort((a, b) => {
-      return a.time > b.time ? 1 : a.time < b.time ? - 1 : 0;
-    });
+    this.screenings = this.route.snapshot.data.screenings;
+    if (this.screenings.length !== 0) { this.movie = this.screenings[0].movie; }
     console.log('----Screenings----');
     console.log(this.screenings);
   }

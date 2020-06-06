@@ -1,14 +1,33 @@
-<table>
+<div class="bs-data-panel">
+    <div class="movieDesc" style="display: flex;">
+        <div style="flex: 70%;">
+            <div class="movieTitle">
+                <span class="movieTitle">{{ movie.title }}</span>
+            </div>
+            <div class="movieDescription">
+                <span>{{ movie.description }}</span>
+            </div>
+            <div class="movieDetails">
+                <span class="movieDetails">Duration: {{ movie.duration }} minutes</span>
+            </div>
+        </div>
+        <img class="movieImage" src="{{ movie.image }}" onerror="this.src='../../assets/placeholderPoster.jpg';" style="flex:30%;">
+    </div>
+</div>
+<table class="greenTable">
     <tr>
         <th>Hall</th>
         <th>Time</th>
         <th>Price</th>
+        <th>Make a Reservation</th>
     </tr>
 
     <tr *ngFor = "let screening of screenings">
-        <td>{{ screening.hallId.id }}</td>
-        <td>{{ screening.time }}</td>
+        <td>{{ screening.hall.id }}</td>
+        <td>{{ screening.time | date:'short'}}</td>
         <td>{{ screening.price }}</td>
+        <app-movie-screening-reservation-modal [screening] = "screening"></app-movie-screening-reservation-modal>
     </tr>
 </table>
 <p *ngIf="!screenings || screenings.length === 0">Currently no screenings for this Movie</p>
+<router-outlet></router-outlet>
