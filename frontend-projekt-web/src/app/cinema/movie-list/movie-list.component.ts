@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieListComponent implements OnInit {
 
-    movies: Movie[];
+  movies: Movie[];
 
   constructor(private readonly route: ActivatedRoute) { }
 

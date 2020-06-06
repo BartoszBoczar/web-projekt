@@ -11,7 +11,7 @@ export class MovieScreeningsRestService {
   constructor(private readonly http: HttpClient) { }
 
   findScreeningByMovieId(movieId: number): Observable<MovieScreening[]> {
-      return this.http.get<Movie[]>('/api/screenings/' + movieId);
+      return this.http.get<MovieScreening[]>('/api/screenings/movie/' + movieId);
   }
 
 }

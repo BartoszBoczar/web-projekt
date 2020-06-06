@@ -1,1 +1,14 @@
-<p>movie-screening-list works!</p>
+<table>
+    <tr>
+        <th>Hall</th>
+        <th>Time</th>
+        <th>Price</th>
+    </tr>
+
+    <tr *ngFor = "let screening of screenings">
+        <td>{{ screening.hallId.id }}</td>
+        <td>{{ screening.time }}</td>
+        <td>{{ screening.price }}</td>
+    </tr>
+</table>
+<p *ngIf="!screenings || screenings.length === 0">Currently no screenings for this Movie</p>

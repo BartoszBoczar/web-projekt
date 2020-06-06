@@ -1,10 +1,10 @@
-import {Movie} from 'movie';
-import {Hall} from 'hall';
+import {Movie} from '../model/movie';
+import {Hall} from '../model/hall';
 
 export interface MovieScreening {
     id: number;
     movie: Movie;
     hall: Hall;
-    beginTime: Date;
+    time: Date;
     price: number;
 }
