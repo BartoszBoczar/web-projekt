@@ -3,8 +3,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { MovieScreening } from '../../model/movieScreening';
 import { ReservationSeat } from '../../model/reservationSeat';
-import { ReservationDTO } from '../../model/dto/reservationDTO';
-import { SeatDTO } from '../../model/dto/seatDTO';
 import { Seat } from '../../model/seat';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
@@ -37,6 +35,7 @@ export class MovieScreeningReservationModalComponent implements OnInit {
   }
 
   open(content): void {
+    this.getSeats();
     this.generateSeatModel();
     this.modal = this.modalService.open(content);
     console.log(this.seatModels);
