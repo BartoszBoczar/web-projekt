@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MovieScreening } from '../../model/movieScreening';
 import { ReservationSeat } from '../../model/reservationSeat';
 import { Seat } from '../../model/seat';
+import { SeatDTO } from '../../model/dto/seatDTO';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
 import { SeatRepresentationComponent } from '../../movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
@@ -72,16 +73,16 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     console.log(this.selectedSeats);
   }
 
-  makeSeatReservationList() {
-
-  }
-
   onClickMakeReservation(userForm): void {
     const reservationObj = { name: userForm.form.value.name, surname: userForm.form.value.surname, email: userForm.form.value.email};
-    const reservationSeatDTOListObj = [];
-    //const finalObj = { reservation: reservationObj, reservationSeatDTOList: reservationSeatDTOListObj,
-    //    screeningId: this.screening.id};
-    //this.reservationsRestService.saveReservation(finalObj);
-    window.location.reload();
+    const seatDTOList = [];
+    for (const s of this.selectedSeats) {
+      seatDTOList.push({seat: { row: s.row, column: s.column }, hallId: this.screening.hall.id});
+    }
+    const finalObj = { reservation: reservationObj, seatDTOList,
+        screeningId: this.screening.id};
+    console.log(finalObj);
+    this.reservationsRestService.saveReservation(finalObj).subscribe(v => console.log(v));
+    // window.location.reload();
   }
 }
