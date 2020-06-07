@@ -2,11 +2,11 @@ button.btn-outline-success {
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid #05a81e;
-  background-color: #00cc1b;
+  background-color: #00c217;
   color: #ffffff;
   padding: 5px 10px;
-  height:35px;
-   width:35px;
+  height:64px;
+  width:42px;
 }
 
 button.btn-outline-success {
@@ -20,4 +20,14 @@ button.btn-outline-success[disabled]{
   border: 1px solid #999999;
   background-color: #000000;
   color: #474747;
+}
+button.btn-outline-success-selected {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #05a81e;
+  background-color: #c2a802;
+  color: #ffffff;
+  padding: 5px 10px;
+  height:64px;
+  width:42px;
 }
