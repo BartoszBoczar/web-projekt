@@ -12,6 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ReservationDTO {
     private Reservation reservation;
-    private List<ReservationSeatDTO> reservationSeatDTOList;
+    private List<SeatDTO> seatDTOList;
     private Long screeningId;
 }

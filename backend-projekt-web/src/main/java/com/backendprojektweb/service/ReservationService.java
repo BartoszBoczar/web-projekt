@@ -3,12 +3,13 @@ package com.backendprojektweb.service;
 import com.backendprojektweb.exceptions.ReferenceNotPresentException;
 import com.backendprojektweb.model.*;
 import com.backendprojektweb.model.dto.ReservationDTO;
-import com.backendprojektweb.model.dto.ReservationSeatDTO;
+import com.backendprojektweb.model.dto.SeatDTO;
 import com.backendprojektweb.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,13 +30,17 @@ public class ReservationService {
 
     @Transactional(rollbackOn = ReferenceNotPresentException.class)
     public Reservation saveReservation(ReservationDTO reservationDTO) throws ReferenceNotPresentException {
+        if(reservationDTO.getSeatDTOList().size() == 0) {
+            return null;
+        }
         // Check which seats are not available
-        List<ReservationSeat> unavailableReservationSeats = reservationSeatRepository.unavailableSeatsDuringScreening(reservationDTO.getScreeningId());
-        for(ReservationSeat unavailableReservationSeat : unavailableReservationSeats) {
-            for(ReservationSeatDTO reservationSeatDTO : reservationDTO.getReservationSeatDTOList()) {
-                Long seatId = reservationSeatDTO.getSeatId();
-                // Return if any of the seats meant to be reserved are already reserved
-                if(seatId == unavailableReservationSeat.getSeat().getId()) {
+        List<Seat> unavailableSeats = reservationSeatRepository.unavailableSeatsDuringScreening(reservationDTO.getScreeningId());
+
+        for(Seat unavailableSeat : unavailableSeats) {
+            for(SeatDTO seatDTO : reservationDTO.getSeatDTOList()) {
+                Seat seatToReserve = seatDTO.getSeat();
+                // Throw exception if any of the seats meant to be reserved are already reserved
+                if(unavailableSeat.getColumn() == seatToReserve.getColumn() && unavailableSeat.getRow() == seatToReserve.getRow()) {
                     throw new ReferenceNotPresentException();
                 }
             }
@@ -58,10 +63,20 @@ public class ReservationService {
         } else {
             savedReservation = repository.save(reservationDTO.getReservation());
         }
+        // Find all seats to be reserved
+        List<Seat> seatsInHall = seatRepository.seatsInHall(reservationDTO.getSeatDTOList().get(0).getHallId());
+        List<ReservationSeat> reservationSeatsToSave = new ArrayList<>();
+        for(Seat seatInHall: seatsInHall) {
+            for(SeatDTO seatDTO : reservationDTO.getSeatDTOList()) {
+                Seat seatToBeReserved = seatDTO.getSeat();
+                if(seatInHall.getRow() == seatToBeReserved.getRow() && seatInHall.getColumn() == seatToBeReserved.getColumn()) {
+                    reservationSeatsToSave.add(new ReservationSeat(savedReservation, seatInHall));
+                }
+            }
+        }
         // Save all reservation seats
-        for(ReservationSeatDTO reservationSeatDTO : reservationDTO.getReservationSeatDTOList()) {
-            reservationSeatDTO.setReservationId(savedReservation.getId());
-            reservationSeatService.saveReservationSeat(reservationSeatDTO);
+        for(ReservationSeat reservationSeatToSave: reservationSeatsToSave) {
+            reservationSeatRepository.save(reservationSeatToSave);
         }
         return savedReservation;
     }

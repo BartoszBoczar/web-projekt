@@ -22,4 +22,9 @@ public class ReservationSeat extends AbstractEntity {
     @Column(name = "discount")
     @Enumerated(EnumType.STRING)
     private Discount discount;
+
+    public ReservationSeat(Reservation reservation, Seat seat) {
+        this.reservation = reservation;
+        this.seat = seat;
+    }
 }

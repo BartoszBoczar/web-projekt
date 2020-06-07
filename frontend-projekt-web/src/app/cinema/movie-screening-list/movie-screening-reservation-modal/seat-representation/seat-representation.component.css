@@ -1,4 +1,23 @@
 button.btn-outline-success {
   margin-top: 5px;
-  margin-bottom: 5px
+  margin-bottom: 5px;
+  border: 1px solid #05a81e;
+  background-color: #00cc1b;
+  color: #ffffff;
+  padding: 5px 10px;
+  height:35px;
+   width:35px;
+}
+
+button.btn-outline-success {
+  border: 1px solid #05a81e;
+  background-color: #00cc1b;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+button.btn-outline-success[disabled]{
+  border: 1px solid #999999;
+  background-color: #000000;
+  color: #474747;
 }

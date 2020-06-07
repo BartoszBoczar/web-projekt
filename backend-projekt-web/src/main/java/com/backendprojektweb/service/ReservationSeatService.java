@@ -29,7 +29,7 @@ public class ReservationSeatService {
     public ReservationSeat getReservationSeat(Long id) { return repository.findById(id).orElse(null); }
 
     @Transactional
-    public List<ReservationSeat> getUnavailableReservationSeats(Long screeningId) { return repository.unavailableSeatsDuringScreening(screeningId); }
+    public List<ReservationSeat> getUnavailableReservationSeats(Long screeningId) { return repository.unavailableReservationSeatsDuringScreening(screeningId); }
 
     @Transactional(rollbackOn = ReferenceNotPresentException.class)
     public ReservationSeat saveReservationSeat(ReservationSeatDTO reservationSeatDTO) throws ReferenceNotPresentException{
