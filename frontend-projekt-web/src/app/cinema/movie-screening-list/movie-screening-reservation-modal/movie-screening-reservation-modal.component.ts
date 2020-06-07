@@ -74,7 +74,11 @@ export class MovieScreeningReservationModalComponent implements OnInit {
   }
 
   onClickMakeReservation(userForm): void {
-    const obj = {};
-    console.log('made');
+    const reservationObj = { name: userForm.form.value.name, surname: userForm.form.value.surname, email: userForm.form.value.email};
+    const reservationSeatDTOListObj = {};
+    const finalObj = { reservation: reservationObj, reservationSeatDTOList: reservationSeatDTOListObj,
+        screeningId: this.screening.id};
+    this.reservationsRestService.saveReservation(finalObj);
+    window.location.reload();
   }
 }
