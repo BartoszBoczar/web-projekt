@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-seat-representation',
@@ -8,11 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SeatRepresentationComponent implements OnInit {
 
   @Input()
-  available: boolean;
+  model: any;
+
+  @Output()
+  selectedSeat = new EventEmitter<{row: number, column: number}>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectSeat(): void {
+    this.selectedSeat.emit({row: this.model.row, column: this.model.column});
   }
 
 }

@@ -6,13 +6,25 @@
         </button>
     </div>
     <div class="modal-body">
-        <div style="height: 30px; width: 100%; background-color: green"><h4 style="color: white; text-align: center;">Screen</h4></div>
-        <div *ngFor = "let seatModel of seatModels" style="display: flex; justify-content: space-between;">
-            <app-seat-representation *ngFor = "let model of seatModel" [available] = "model"></app-seat-representation>
+        <div class="screen-box"><h4 class="screen-text">Screen</h4></div>
+        <div class="seats-grid" *ngFor = "let rowModel of seatModels">
+            <app-seat-representation *ngFor = "let model of rowModel" [model] = "model" (selectedSeat)="receiveSelectedSeat($event)"></app-seat-representation>
         </div>
+        <form #userForm="ngForm" (ngSubmit)="onClickMakeReservation(userForm)">
+            <div class="form-group">
+                <input required minlength="3" type="text" placeholder="Name" name="name" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+                <input required minlength="3" type="text" placeholder="Surname" name="surname" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+                <input required minlength="3" type="text" placeholder="Email" name="email" class="form-control" ngModel>
+            </div>
+            <button type="submit" [disabled]="userForm.invalid">Make a Reservation</button>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-success">Make a Reservation</button>
+
     </div>
 </ng-template>
-<button class="btn btn-outline-success" (click)="open(content)" style="width: 100%; height: 30px"></button>
+<button class="btn btn-outline-success" (click)="open(content)"></button>

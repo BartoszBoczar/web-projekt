@@ -3,22 +3,28 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { MovieScreening } from '../../model/movieScreening';
 import { ReservationSeat } from '../../model/reservationSeat';
+import { Seat } from '../../model/seat';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
+import { SeatRepresentationComponent } from '../../movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
+
 
 @Component({
   selector: 'app-movie-screening-reservation-modal',
   templateUrl: './movie-screening-reservation-modal.component.html',
-  styleUrls: ['./movie-screening-reservation-modal.component.css']
+  styleUrls: ['./movie-screening-reservation-modal.component.css'],
+  template: '<app-seat-representation (selectedSeat)="receiveSelectedSeat($event)"></app-seat-representation>'
 })
 export class MovieScreeningReservationModalComponent implements OnInit {
 
   @Input()
   screening: MovieScreening;
 
-  takenSeats: ReservationSeat[];
+  takenSeats: Array<ReservationSeat>;
 
-  seatModels: boolean[][];
+  seatModels: any;
+
+  selectedSeats: Array<Seat> = [];
 
   modal: any;
 
@@ -37,7 +43,6 @@ export class MovieScreeningReservationModalComponent implements OnInit {
   getSeats(): void {
     this.reservationsRestService.findAllReservationSeatsForScreening(this.screening.id).subscribe(val => {
       this.takenSeats = val;
-      console.log(this.takenSeats);
     });
   }
 
@@ -46,13 +51,28 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     for (let i = 0; i < nRows; i++) {
       arr[i] = new Array(nColumns);
       for (let j = 0; j < nColumns; j++) {
-        arr[i][j] = false;
+        arr[i][j] = { row: i, column: j, taken: false};
       }
     }
     for (const seat of this.takenSeats) {
-      arr[seat.seat.row][seat.seat.column] = true;
+      arr[seat.seat.row][seat.seat.column].taken = true;
     }
     this.seatModels = arr;
   }
 
+  receiveSelectedSeat(event): void {
+    for (let i = 0; i < this.selectedSeats.length; i++) {
+      if (this.selectedSeats[i].row === event.row && this.selectedSeats[i].column === event.column) {
+        this.selectedSeats.splice(i, 1);
+        return;
+      }
+    }
+    this.selectedSeats.push({hall: this.screening.hall, row: event.row, column: event.column});
+    console.log(this.selectedSeats);
+  }
+
+  onClickMakeReservation(userForm): void {
+    const obj = {};
+    console.log('made');
+  }
 }
