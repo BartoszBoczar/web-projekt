@@ -83,6 +83,6 @@ export class MovieScreeningReservationModalComponent implements OnInit {
         screeningId: this.screening.id};
     console.log(finalObj);
     this.reservationsRestService.saveReservation(finalObj).subscribe(v => console.log(v));
-    // window.location.reload();
+    //window.location.reload();
   }
 }

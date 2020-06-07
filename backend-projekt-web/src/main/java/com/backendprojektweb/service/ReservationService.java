@@ -30,7 +30,7 @@ public class ReservationService {
 
     @Transactional(rollbackOn = ReferenceNotPresentException.class)
     public Reservation saveReservation(ReservationDTO reservationDTO) throws ReferenceNotPresentException {
-        if(reservationDTO.getSeatDTOList().size() == 0) {
+        if(reservationDTO.getSeatDTOList().isEmpty()) {
             return null;
         }
         // Check which seats are not available
@@ -69,6 +69,9 @@ public class ReservationService {
         for(Seat seatInHall: seatsInHall) {
             for(SeatDTO seatDTO : reservationDTO.getSeatDTOList()) {
                 Seat seatToBeReserved = seatDTO.getSeat();
+                if(seatToBeReserved.getColumn() == 0 && seatToBeReserved.getRow() == 4) {
+                    int a = 0;
+                }
                 if(seatInHall.getRow() == seatToBeReserved.getRow() && seatInHall.getColumn() == seatToBeReserved.getColumn()) {
                     reservationSeatsToSave.add(new ReservationSeat(savedReservation, seatInHall));
                 }
