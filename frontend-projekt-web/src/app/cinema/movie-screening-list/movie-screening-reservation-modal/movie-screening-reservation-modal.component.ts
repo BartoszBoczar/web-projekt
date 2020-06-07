@@ -80,9 +80,10 @@ export class MovieScreeningReservationModalComponent implements OnInit {
       seatDTOList.push({seat: { row: s.row, column: s.column }, hallId: this.screening.hall.id});
     }
     const finalObj = { reservation: reservationObj, seatDTOList,
-        screeningId: this.screening.id};
+      screeningId: this.screening.id};
     console.log(finalObj);
     this.reservationsRestService.saveReservation(finalObj).subscribe(v => console.log(v));
-    //window.location.reload();
+    this.modal.close();
+    window.location.reload();
   }
 }
