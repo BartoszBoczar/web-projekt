@@ -18,9 +18,10 @@ button.btn-outline-success {
 
 button.btn-outline-success[disabled]{
   border: 1px solid #999999;
-  background-color: #000000;
-  color: #474747;
+  background-color: #807e7e;
+  color: #000000;
 }
+
 button.btn-outline-success-selected {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -31,3 +32,4 @@ button.btn-outline-success-selected {
   height:64px;
   width:42px;
 }
+

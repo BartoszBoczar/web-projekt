@@ -17,7 +17,7 @@ body {
 }
 
 nav {
-  background-color: $background-color-2;
+  background-color: #4CAF50;
   color: white;
   padding: 0.3em $side-margin;
   a {
@@ -92,39 +92,55 @@ img.movieImage {
 }
 
 .screeningDatesButton {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #c4c4c4 100%);
-	background-color:#ffffff;
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #7eb871 5%, #429e00 100%);
+	background-color:#7eb871;
 	border-radius:6px;
-	border:1px solid #d1c9d1;
+	border:1px solid #74b807;
 	display:inline-block;
 	cursor:pointer;
-	color:#525252;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:11px 36px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-	margin:10px;
+	text-shadow:0px 0px 0px #528009;
 }
 .screeningDatesButton:hover {
-	background:linear-gradient(to bottom, #c4c4c4 5%, #ffffff 100%);
-	background-color:#c4c4c4;
+	background:linear-gradient(to bottom, #429e00 5%, #7eb871 100%);
+	background-color:#429e00;
 }
 .screeningDatesButton:active {
 	position:relative;
 	top:1px;
 }
 
+
+
 table.greenTable {
-  border: 6px solid #24943A;
-  background-color: #D4EED1;
-  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-table.greenTable td {
-  border: 1px solid #24943A;
-  padding: 3px 2px;
-  font-size: 13px;
+table.greenTable td, table.greenTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table.greenTable th.greenTableMainHeader {
+  text-align: center;
+  font-size:20px;
+}
+
+table.greenTable tr:nth-child(even){background-color: #f2f2f2;}
+
+table.greenTable tr:hover {background-color: #ddd;}
+
+table.greenTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }

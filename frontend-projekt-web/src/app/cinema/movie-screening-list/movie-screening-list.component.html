@@ -16,6 +16,9 @@
 </div>
 <table class="greenTable">
     <tr>
+        <th class="greenTableMainHeader" colspan="4">Available screenings</th>
+    </tr>
+    <tr>
         <th>Hall</th>
         <th>Time</th>
         <th>Price</th>
@@ -25,7 +28,7 @@
     <tr *ngFor = "let screening of screenings">
         <td>{{ screening.hall.id }}</td>
         <td>{{ screening.time | date:'short'}}</td>
-        <td>{{ screening.price }}</td>
+        <td>{{ screening.price }} zł</td>
         <app-movie-screening-reservation-modal [screening] = "screening"></app-movie-screening-reservation-modal>
     </tr>
 </table>
