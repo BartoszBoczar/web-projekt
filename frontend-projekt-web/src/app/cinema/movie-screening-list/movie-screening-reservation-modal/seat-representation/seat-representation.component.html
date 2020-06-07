@@ -1,1 +1,1 @@
-<button class="btn btn-outline-success" [disabled]="model.taken" (click)="selectSeat()">X</button>
+<button [ngClass]="{'btn btn-outline-success' : !buttonSelected, 'btn btn-outline-success-selected': buttonSelected}" [disabled]="model.taken" (click)="selectSeat()">C{{model.column + 1}}<br/>R{{model.row + 1}}</button>

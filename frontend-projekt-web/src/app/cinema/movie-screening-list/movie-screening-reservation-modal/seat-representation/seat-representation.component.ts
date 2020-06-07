@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SeatRepresentationComponent implements OnInit {
 
+  buttonSelected: boolean = false;
+
   @Input()
   model: any;
 
@@ -20,6 +22,6 @@ export class SeatRepresentationComponent implements OnInit {
 
   selectSeat(): void {
     this.selectedSeat.emit({row: this.model.row, column: this.model.column});
+    this.buttonSelected = !this.buttonSelected;
   }
-
 }
