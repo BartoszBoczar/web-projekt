@@ -1,3 +1,3 @@
-export const n_rows = 5;
+export const nRows = 5;
 
-export const n_columns = 10;
+export const nColumns = 10;

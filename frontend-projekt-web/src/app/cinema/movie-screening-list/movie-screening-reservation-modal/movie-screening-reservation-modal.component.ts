@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MovieScreening } from '../../model/movieScreening';
 import { ReservationSeat } from '../../model/reservationSeat';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
-import { n_rows, n_columns } from '../../constants/hallSize'
+import { nRows, nColumns } from '../../constants/hallSize';
 
 @Component({
   selector: 'app-movie-screening-reservation-modal',
@@ -42,14 +42,14 @@ export class MovieScreeningReservationModalComponent implements OnInit {
   }
 
   generateSeatModel(): void {
-    var arr = new Array(n_rows);
-    for (var i = 0; i < n_rows; i++) {
-      arr[i] = new Array(n_columns)
-      for (var j = 0; j < n_columns; j++) {
+    const arr = new Array(nRows);
+    for (let i = 0; i < nRows; i++) {
+      arr[i] = new Array(nColumns);
+      for (let j = 0; j < nColumns; j++) {
         arr[i][j] = false;
       }
     }
-    for (let seat of this.takenSeats) {
+    for (const seat of this.takenSeats) {
       arr[seat.seat.row][seat.seat.column] = true;
     }
     this.seatModels = arr;
