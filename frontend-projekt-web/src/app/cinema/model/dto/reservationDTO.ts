@@ -1,8 +1,8 @@
 import {Reservation} from '../../model/reservation';
-import {ReservationSeatDTO} from '../dto/reservationSeatDTO';
+import {SeatDTO} from '../dto/SeatDTO';
 
 export interface ReservationDTO {
     reservation: Reservation;
-    reservationSeatDTOList: Array<ReservationSeatDTO>;
+    seatDTOList: Array<SeatDTO>;
     screeningId: number;
 }

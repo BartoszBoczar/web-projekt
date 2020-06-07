@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MovieScreening } from '../../model/movieScreening';
 import { ReservationSeat } from '../../model/reservationSeat';
 import { ReservationDTO } from '../../model/dto/reservationDTO';
-import { ReservationSeatDTO } from '../../model/dto/reservationSeatDTO';
+import { SeatDTO } from '../../model/dto/seatDTO';
 import { Seat } from '../../model/seat';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
