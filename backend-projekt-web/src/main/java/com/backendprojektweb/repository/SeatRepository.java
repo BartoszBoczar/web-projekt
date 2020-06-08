@@ -14,5 +14,5 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
             "FROM #{#entityName} st " +
             "JOIN st.hall h " +
             "WHERE h.id = :hallId")
-    public List<Seat> seatsInHall(@Param("hallId") Long hallId);
+    List<Seat> seatsInHall(@Param("hallId") Long hallId);
 }

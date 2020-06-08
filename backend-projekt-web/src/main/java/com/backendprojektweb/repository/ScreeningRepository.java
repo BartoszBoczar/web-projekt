@@ -15,12 +15,12 @@ public interface ScreeningRepository extends JpaRepository<Screening, Long> {
             "FROM #{#entityName} sc " +
             "JOIN sc.movie m " +
             "WHERE m.id = :movieId")
-    public List<Screening> allScreeningsOfMovie(@Param("movieId") Long movieId);
+    List<Screening> allScreeningsOfMovie(@Param("movieId") Long movieId);
     @Query(value = "SELECT sc " +
             "FROM #{#entityName} sc " +
             "JOIN sc.movie m " +
             "WHERE m.id = :movieId " +
             "AND sc.time >= :dateFrom " +
             "ORDER BY sc.time ASC")
-    public List<Screening> allScreeningsOfMovieFromDate(@Param("movieId") Long movieId, @Param("dateFrom")LocalDateTime dateFrom);
+    List<Screening> allScreeningsOfMovieFromDate(@Param("movieId") Long movieId, @Param("dateFrom")LocalDateTime dateFrom);
 }

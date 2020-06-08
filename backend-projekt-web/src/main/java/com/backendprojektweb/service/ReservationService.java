@@ -69,9 +69,6 @@ public class ReservationService {
         for(Seat seatInHall: seatsInHall) {
             for(SeatDTO seatDTO : reservationDTO.getSeatDTOList()) {
                 Seat seatToBeReserved = seatDTO.getSeat();
-                if(seatToBeReserved.getColumn() == 0 && seatToBeReserved.getRow() == 4) {
-                    int a = 0;
-                }
                 if(seatInHall.getRow() == seatToBeReserved.getRow() && seatInHall.getColumn() == seatToBeReserved.getColumn()) {
                     reservationSeatsToSave.add(new ReservationSeat(savedReservation, seatInHall));
                 }
