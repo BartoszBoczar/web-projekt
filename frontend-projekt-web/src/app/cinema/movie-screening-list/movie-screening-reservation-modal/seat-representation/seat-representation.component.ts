@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SeatRepresentationComponent implements OnInit {
 
-  buttonSelected: boolean = false;
+  buttonSelected = false;
 
   @Input()
   model: any;
