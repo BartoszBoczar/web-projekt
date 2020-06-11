@@ -14,14 +14,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/reservation_seats/1",
+							"raw": "http://localhost:8080/reservationSeats/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"reservation_seats",
+								"reservationSeats",
 								"1"
 							]
 						}
@@ -34,14 +34,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/reservation_seats",
+							"raw": "http://localhost:8080/reservationSeats",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"reservation_seats"
+								"reservationSeats"
 							]
 						}
 					},
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"reservationId\": {\n        \"id\": 116,\n        \"screeningId\": {\n            \"id\": 121,\n            \"movieId\": {\n                \"id\": 9,\n                \"title\": \"Donkey's Christmas Shrektacular\",\n                \"description\": \"This short animation film takes place in the Happy Apple, the friendly version of the Poison Apple. Donkey (Eddie Murphy) suggests everyone sing Christmas carols. Donkey sings \\\"It's the Most Wonderful Time\\\", Shrek (Mike Myers), Princess Fiona (Cameron Diaz), the Ogre children, and army of ogres sing an ogre version of \\\"Jingle Bells\\\" (containing lyrics such as \\\"Bug Cocoon, Lick the spoon. Try our cricket slurp\\\"). Puss in Boots (Antonio Banderas) sings \\\"Feliz Navidad\\\" in a new rendition titled \\\"Fleas Navidad\\\". In the finale, everyone sings \\\"Jingle Bell Rock\\\", dubbed as \\\"Fairy Tale Rock\\\".\",\n                \"duration\": 8,\n                \"image\": \"https://www.mobygames.com/images/covers/l/490680-donkey-s-christmas-shrektacular-windows-front-cover.png\"\n            },\n            \"hallId\": {\n                \"id\": 4\n            },\n            \"time\": \"2020-03-23T09:05:36\",\n            \"price\": 5.99\n        },\n        \"name\": \"Jillian\",\n        \"surname\": \"Osborn\",\n        \"email\": \"Cras.convallis@diamluctus.edu\"\n    },\n    \"seatId\": {\n        \"id\": 331,\n        \"hallId\": {\n            \"id\": 7\n        },\n        \"row\": 1,\n        \"column\": 4\n    },\n    \"discount\": \"STUDENT\"\n}",
+							"raw": "{\n    \"reservationSeat\": {\n        \"discount\": \"NONE\"\n    },\n    \"reservationId\": 1,\n    \"seatId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,14 +62,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/reservation_seats",
+							"raw": "http://localhost:8080/reservationSeats",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"reservation_seats"
+								"reservationSeats"
 							]
 						}
 					},
@@ -82,7 +82,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"reservationId\": {\n        \"id\": 148,\n        \"screeningId\": {\n            \"id\": 985,\n            \"movieId\": {\n                \"id\": 4,\n                \"title\": \"Shrek Forever After\",\n                \"description\": \"Shrek has become a domesticated family man, living happily with Princess Fiona and the triplets. Instead of scaring villagers away like he used to, a reluctant Shrek now agrees to autograph pitchforks. Longing for the days when he felt like a \\\"real ogre\\\", Shrek is tricked into signing a pact with the smooth-talking dealmaker Rumpelstiltskin. He agrees to trade a day from his childhood in exchange for a day to exist as a real ogre again. However, Shrek suddenly finds himself in a twisted, alternate reality where ogres are hunted, Rumplestiltskin is king, Puss is obese, and Shrek has never met Donkey or Fiona. Shrek discovers he unknowingly traded the day he was born and will not exist after the day is over.Shrek becomes entangled with an underground resistance of ogres led by Fiona. Rumpelstiltskin places a bounty on Shrek's capture, offering the \\\"deal of a lifetime\\\" as a reward. The Pied Piper captures most of the resistance excluding Shrek and Fiona. Shrek, unable to win Fiona's affection, turns himself in and offers to trade his life to free the captured ogres. The recently released ogres go back to free Shrek and Fiona. As the twenty-four hours are almost up and Shrek lies dying, Fiona kisses him, breaking the deal and reverting everything back to normal. After finding himself back at his triplets' birthday party where he previously lost his temper and stormed out, he joyfully reunites with family and friends realizing he has everything he ever wanted.\",\n                \"duration\": 93,\n                \"image\": \"https://i.pinimg.com/originals/38/12/94/381294c14aab4be8aeac07448a0efa46.jpg\"\n            },\n            \"hallId\": {\n                \"id\": 10\n            },\n            \"time\": \"2020-09-28T19:39:21\",\n            \"price\": 33.33\n        },\n        \"name\": \"Jacqueline\",\n        \"surname\": \"Hubbard\",\n        \"email\": \"faucibus@idblandit.co.uk\"\n    },\n    \"seatId\": {\n        \"id\": 57,\n        \"hallId\": {\n            \"id\": 2\n        },\n        \"row\": 7,\n        \"column\": 1\n    },\n    \"discount\": \"SENIOR\"\n}",
+							"raw": "{\n    \"reservationSeat\": {\n        \"id\": 1,\n        \"discount\": \"STUDENT\"\n    },\n    \"reservationId\": 1,\n    \"seatId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,14 +90,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/reservation_seats",
+							"raw": "http://localhost:8080/reservationSeats",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"reservation_seats"
+								"reservationSeats"
 							]
 						}
 					},
@@ -155,7 +155,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"screeningId\": {\r\n            \"id\": 983,\r\n        \"movieId\": {\r\n            \"id\": 10,\r\n            \"title\": \"Shrek's Yule Log\",\r\n            \"description\": \"Shrek's Yule Log is a 30-minute short released on December 7, 2010, featured on the Donkey's Christmas Shrektacular DVD.The short takes place inside Shrek's house, with the fireplace as the only place seen throughout the entire short. Shrek prevents Rumpelstiltskin from dousing the fire, Donkey does the same eye gag (seen from Shrek Forever After), Princess Fiona puts out cookies for Santa, and Puss puts on weight from cookies and cookie dough. Other characters such as Gingy, Pinocchio, the Three Little Pigs, Cookie, the Ogre Triplets, the Dronkeys, and Pied Piper appear.\",\r\n            \"duration\": 29,\r\n            \"image\": \"https://image.tmdb.org/t/p/w500/z9EENaDvmHDHXaNdhJYDBTvXuWo.jpg\"\r\n        },\r\n        \"hallId\": {\r\n            \"id\": 1\r\n        },\r\n        \"time\": \"2020-07-12T07:16:32\",\r\n        \"price\": 78.99\r\n    },\r\n    \"name\": \"Name\",\r\n    \"surname\": \"Surname\",\r\n    \"email\": \"Email\"\r\n}",
+							"raw": "{\n    \"reservation\": {\n        \"name\": \"Name\",\n        \"surname\": \"Surname\",\n        \"email\": \"Email\"\n    },\n    \"seatDTOList\": [\n        {\n            \"seat\": {\n                \"row\": 3,\n                \"column\":2\n            },\n            \"hallId\": 1\n        },\n        {\n            \"seat\": {\n                \"row\": 3,\n                \"column\": 3\n            },\n            \"hallId\": 1\n        }\n    ],\n    \"screeningId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -183,7 +183,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"screeningId\": {\r\n        \"id\": 430,\r\n        \"movieId\": {\r\n            \"id\": 2,\r\n            \"title\": \"Shrek 2\",\r\n            \"description\": \"The second film opens with Prince Charming on a quest to rescue Princess Fiona from the Dragon. When he gets there, he finds the wolf from Little Red Riding Hood and The Three Little Pigs in Fiona's bed. He asks the wolf where Fiona is and the wolf tells him that she is on her honeymoon with Shrek. Once Shrek and Fiona return from their honeymoon, they find Donkey in the swamp who tells them he and Dragon are going through a rough patch. They then get invited to the land of Far Far Away by Fiona's parents and who want to bless their marriage.When they arrive, Shrek and Fiona are not what they expected. The Fairy Godmother and her son, Prince Charming, are trying to break up Shrek's marriage by making Fiona fall in love with Prince Charming. However it does not work and Shrek and Fiona stay together. Shrek and Donkey get a new sidekick called Puss in Boots. They have a lengthy quest to search the Fairy Godmother's cottage to get a love potion. Shrek and Donkey drink the potion and they become something quite unexpected. Shrek becomes human and Donkey becomes a horse. Since Shrek drank the potion, it also affected Fiona as she woke up to seeing her human form once again.At the end of the film, King Harold reverts to a frog after being struck with the Fairy Godmother's magic, and gives Shrek and Fiona his blessing. After Fiona tells Shrek she loves him just the way he is, they revert to ogres.\",\r\n            \"duration\": 105,\r\n            \"image\": \"https://vignette.wikia.nocookie.net/shrek/images/0/0a/Shrek2.jpg/revision/latest?cb=20150119043848\"\r\n        },\r\n        \"hallId\": {\r\n            \"id\": 5\r\n        },\r\n        \"time\": \"2020-07-12T07:16:32\",\r\n        \"price\": 78.99\r\n    },\r\n    \"name\": \"Name\",\r\n    \"surname\": \"Surname\",\r\n    \"email\": \"Email\"\r\n}",
+							"raw": "{\n    \"reservation\": {\n    \t\"id\": 1,\n        \"name\": \"Name\",\n        \"surname\": \"Surname\",\n        \"email\": \"Email\"\n    },\n    \"reservationSeatDTOList\": [\n        {\n            \"reservationSeat\": {\n                \"discount\": \"NONE\"\n            },\n            \"seatId\": 6\n        },\n        {\n            \"reservationSeat\": {\n                \"discount\": \"NONE\"\n            },\n            \"seatId\": 7\n        }\n    ],\n    \"screeningId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -357,7 +357,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hallId\": {\r\n        \"id\": 1\r\n    },\r\n    \"row\": 1,\r\n    \"column\": 1\r\n}",
+							"raw": "{\n    \"seat\": {\n        \"row\": 1,\n        \"column\": 1\n    },\n    \"hallId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -385,7 +385,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"hallId\": {\r\n        \"id\": 2\r\n    },\r\n    \"row\": 22,\r\n    \"column\": 12\r\n}",
+							"raw": "{\n    \"seat\": {\n        \"id\": 1,\n        \"row\": 188,\n        \"column\": 1\n    },\n    \"hallId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -553,13 +553,55 @@
 					"response": []
 				},
 				{
+					"name": "Get Screening of a Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/screenings/movie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screenings",
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Screening of a Movie From Now",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/screenings/movieFromNow/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screenings",
+								"movieFromNow",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Save Screening",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": {\r\n        \"id\": 3,\r\n        \"title\": \"Shrek the Third\",\r\n        \"description\": \"Shrek and Fiona are reluctantly reigning over Far, Far Away during King Harold's prolonged illness. The King promises that if they can find Fiona's cousin Artie, he will make him the next in line, so both Shrek and Fiona would not have to run the country after his death. As Shrek, Donkey and Puss set off to find Artie, Fiona reveals she is pregnant.Shrek is shocked as he believes he will not be a good father and will ruin his child's life. This is reinforced by his relationship with his own father, where \\\"he tried to eat me.\\\" After finding Artie, Artie is frightened of being king, and they end up on an island where they meet Artie's former magic teacher, Merlin. Meanwhile, Charming plots to overthrow Artie and become king, but this is foiled by Shrek.The film ends with Shrek and Fiona caring for their newborn ogre triplets.\",\r\n        \"duration\": 93,\r\n        \"image\": \"https://vignette.wikia.nocookie.net/shrek/images/2/2f/Shrek3.jpg/revision/latest?cb=20150119044013\"\r\n    },\r\n    \"hallId\": {\r\n        \"id\": 1\r\n    },\r\n    \"time\": \"2020-01-01T00:00:00\",\r\n    \"price\": 11.11\r\n}",
+							"raw": "{\n    \"screening\": {\n        \"time\": \"2020-12-12T00:00:01\",\n        \"price\": 12.0\n    },\n    \"movieId\": 1,\n    \"hallId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -587,7 +629,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": 1,\r\n    \"movieId\": {\r\n        \"id\": 12,\r\n        \"title\": \"The Pig Who Cried Werewolf\",\r\n        \"description\": \"The Three Little Pigs are named Heimlich (Sean Bishop), Dieter (Sean Bishop), and Horst (Cody Cameron) are heading home from the hospital where Heimlich got his leg hurt from spying on neighbors, like the Poor Lady and the Shoe and Jack and Jill (not to be confused with the outlaws Jack and Jill). When they arrived at home, Heimlich saw that there's a new neighbor: The Big Bad Wolf (Aron Warner). When the bag falls down, Heimlich, spying on Big Bad Wolf, saw that Big Bad Wolf has a box of knives, but Dieter and Horst didn't see it. Big Bad Wolf then buries the knives in the ground and goes into his house.\",\r\n            \"duration\": 6,\r\n        \"image\": \"https://m.media-amazon.com/images/M/MV5BMDc5NDAwNzctYzQ2Zi00MDRmLTkxYjYtNzIwMzcwNDc4NWUzXkEyXkFqcGdeQXVyMzY3MDEzMTA@._V1_.jpg\"\r\n    },\r\n    \"hallId\": {\r\n        \"id\": 1\r\n    },\r\n    \"time\": \"2020-01-01T00:00:00\",\r\n    \"price\": 11.11\r\n}",
+							"raw": "{\n    \"screening\": {\n        \"id\": 1,\n        \"time\": \"2020-12-12T00:00:01\",\n        \"price\": 12.0\n    },\n    \"movieId\": 1,\n    \"hallId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
