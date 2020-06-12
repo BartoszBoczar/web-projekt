@@ -16,10 +16,16 @@ describe('SeatRepresentationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SeatRepresentationComponent);
     component = fixture.componentInstance;
+    component.model = { row: 1, column: 2, taken: false};
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be selected after click', () => {
+    component.selectSeat();
+    expect(component.buttonSelected).toBeTruthy();
   });
 });
