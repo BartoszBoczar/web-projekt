@@ -10,15 +10,45 @@
         <div class="seats-grid" *ngFor = "let rowModel of seatModels">
             <app-seat-representation *ngFor = "let model of rowModel" [model] = "model" (selectedSeat)="receiveSelectedSeat($event)"></app-seat-representation>
         </div>
-        <form #userForm="ngForm" (ngSubmit)="onClickMakeReservation(userForm)">
+        <form #userForm="ngForm" (ngSubmit)="onClickMakeReservation(userForm)" [formGroup]="reservationForm">
             <div class="form-group">
-                <input required minlength="3" type="text" placeholder="Name" name="name" class="form-control" ngModel>
+                <input required minlength="3" type="text" placeholder="Name" name="name" id="name" class="form-control" ngModel formControlName="name">
+                <div *ngIf="reservationForm.get('name').invalid && (reservationForm.get('name').dirty || reservationForm.get('name').touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="reservationForm.get('name').errors.required">
+                        Name is required.
+                    </div>
+                    <div *ngIf="reservationForm.get('name').errors.minlength">
+                        Name must be at least 3 characters long.
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <input required minlength="3" type="text" placeholder="Surname" name="surname" class="form-control" ngModel>
+                <input required minlength="3" type="text" placeholder="Surname" name="surname" id="surname" class="form-control" ngModel formControlName="surname">
+                <div *ngIf="reservationForm.get('surname').invalid && (reservationForm.get('surname').dirty || reservationForm.get('surname').touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="reservationForm.get('surname').errors.required">
+                        Surname is required.
+                    </div>
+                    <div *ngIf="reservationForm.get('surname').errors.minlength">
+                        Surname must be at least 3 characters long.
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <input required minlength="3" type="text" placeholder="Email" name="email" class="form-control" ngModel>
+                <input required minlength="3" type="text" placeholder="Email" name="email" id="email" class="form-control" ngModel formControlName="email">
+                <div *ngIf="reservationForm.get('email').invalid && (reservationForm.get('email').dirty || reservationForm.get('email').touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="reservationForm.get('email').errors.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="reservationForm.get('email').errors.minlength">
+                        Email must be at least 3 characters long.
+                    </div>
+                    <div *ngIf="reservationForm.get('email').errors.pattern">
+                        Email address has incorrect pattern.
+                    </div>
+                </div>
             </div>
             <button class="makeReservationButton" type="submit" [disabled]="userForm.invalid">Make a Reservation</button>
         </form>

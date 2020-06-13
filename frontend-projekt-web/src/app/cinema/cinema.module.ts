@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieListPanelComponent } from './movie-list/movie-list-panel/movie-list-panel.component';
 import { MovieScreeningListComponent } from './movie-screening-list/movie-screening-list.component';
@@ -20,7 +20,8 @@ import { SeatRepresentationComponent } from './movie-screening-list/movie-screen
   imports: [
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CinemaModule { }

@@ -8,7 +8,7 @@ import { SeatDTO } from '../../model/dto/seatDTO';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
 import { SeatRepresentationComponent } from '../../movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
-
+import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-movie-screening-reservation-modal',
@@ -17,6 +17,8 @@ import { SeatRepresentationComponent } from '../../movie-screening-list/movie-sc
   template: '<app-seat-representation (selectedSeat)="receiveSelectedSeat($event)"></app-seat-representation>'
 })
 export class MovieScreeningReservationModalComponent implements OnInit {
+
+  reservationForm: FormGroup;
 
   @Input()
   screening: MovieScreening;
@@ -33,6 +35,11 @@ export class MovieScreeningReservationModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSeats();
+    this.reservationForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      surname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('[^ @]*@[^ @]*')])
+    });
   }
 
   open(content): void {
