@@ -7,7 +7,8 @@ import { MovieListPanelComponent } from './movie-list/movie-list-panel/movie-lis
 import { MovieScreeningListComponent } from './movie-screening-list/movie-screening-list.component';
 import { MovieScreeningReservationModalComponent } from './movie-screening-list/movie-screening-reservation-modal/movie-screening-reservation-modal.component';
 import { SeatRepresentationComponent } from './movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { SeatRepresentationComponent } from './movie-screening-list/movie-screen
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ]
 })
 export class CinemaModule { }

@@ -8,7 +8,9 @@ import { SeatDTO } from '../../model/dto/seatDTO';
 import { ReservationsRestService } from '../../shared/services/reservations-rest.service';
 import { nRows, nColumns } from '../../constants/hallSize';
 import { SeatRepresentationComponent } from '../../movie-screening-list/movie-screening-reservation-modal/seat-representation/seat-representation.component';
-import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-movie-screening-reservation-modal',
@@ -31,7 +33,8 @@ export class MovieScreeningReservationModalComponent implements OnInit {
 
   modal: any;
 
-  constructor(private modalService: NgbModal, private router: Router, private readonly reservationsRestService: ReservationsRestService) { }
+  constructor(private modalService: NgbModal, private router: Router,
+              private readonly reservationsRestService: ReservationsRestService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getSeats();
@@ -80,7 +83,11 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     console.log(this.selectedSeats);
   }
 
-  onClickMakeReservation(userForm): void {
+  delay(ms: number) {
+    return new Promise( res => setTimeout(res, ms) );
+  }
+
+  async onClickMakeReservation(userForm) {
     const reservationObj = { name: userForm.form.value.name, surname: userForm.form.value.surname, email: userForm.form.value.email};
     const seatDTOList = [];
     for (const s of this.selectedSeats) {
@@ -89,8 +96,12 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     const finalObj = { reservation: reservationObj, seatDTOList,
       screeningId: this.screening.id};
     console.log(finalObj);
-    this.reservationsRestService.saveReservation(finalObj).subscribe(v => console.log(v));
+    this.reservationsRestService.saveReservation(finalObj).subscribe(v => {
+      v ? this.toastr.success('You have made a reservarion.', 'Success', { timeOut: 1500 }) :
+        this.toastr.success('Could not make a reservation.', 'Failed', { timeOut: 1500 });
+    });
     this.modal.close();
+    await this.delay(2000);
     window.location.reload();
   }
 }
