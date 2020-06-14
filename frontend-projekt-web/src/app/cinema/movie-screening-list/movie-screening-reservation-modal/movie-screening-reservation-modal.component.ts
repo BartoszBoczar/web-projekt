@@ -41,7 +41,8 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     this.reservationForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       surname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('[^ @]*@[^ @]*')])
+      email: new FormControl('', [Validators.required, Validators.minLength(3),
+                             Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')])
     });
   }
 
@@ -98,7 +99,7 @@ export class MovieScreeningReservationModalComponent implements OnInit {
     console.log(finalObj);
     this.reservationsRestService.saveReservation(finalObj).subscribe(v => {
       v ? this.toastr.success('You have made a reservarion.', 'Success', { timeOut: 1500 }) :
-        this.toastr.success('Could not make a reservation.', 'Failed', { timeOut: 1500 });
+        this.toastr.error('Could not make a reservation.', 'Failed', { timeOut: 1500 });
     });
     this.modal.close();
     await this.delay(2000);
